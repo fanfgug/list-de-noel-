@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liste de Noël de Fanny</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/*
+VOICE: élégant, vintage, chic années 80, lisible d'abord
+IDEA: papeterie d'invitation : rayures bordeaux, carton crème, rose poudré
+PICTURE: les photos des produits en vitrine, deux par ligne sur téléphone
+COLOUR and TYPE: rayures bordeaux, crème, rose ; Pinyon Script pour les titres, Cormorant + EB Garamond
+LAYOUT: petit carton titre, filtres sur une ligne, grille photo, fiche produit en panneau
+*/
+:root{color-scheme:light;--b1:#7a1528;--b2:#8c2236;--bx:#8e1f35;--paper:#fbf6ee;--rose:#eba7b6;--rose2:#f6d3db;--ink:#4d0c1b;--muted:#8a5260;--line:#e2c2c9}
+*{box-sizing:border-box;min-width:0}[hidden]{display:none!important}
+body{margin:0;color:var(--ink);font:17px/1.5 "EB Garamond",Georgia,serif;overflow-x:clip;min-height:100vh;background:repeating-linear-gradient(90deg,var(--b1) 0 30px,var(--b2) 30px 60px) fixed}
+.wrap{max-width:1100px;margin:0 auto;padding:0 14px 40px}
+header{padding:28px 0 18px;display:grid;place-items:center}
+.card{position:relative;background:var(--paper);width:min(460px,100%);padding:26px 22px 20px;text-align:center;box-shadow:0 16px 34px -14px rgba(30,0,8,.7);outline:1.5px solid var(--bx);outline-offset:-8px}
+.card small{font:italic 500 16px "Cormorant Garamond",serif;color:var(--bx)}
+h1{font:400 clamp(42px,11vw,60px)/1 "Pinyon Script",cursive;color:var(--bx);margin:4px 0 6px}
+.card p{margin:0;font-size:15px;color:var(--muted)}
+.stats{display:flex;justify-content:center;gap:16px;margin-top:8px;font-size:14px;color:var(--muted)}
+.stats b{color:var(--bx);font:700 18px "Cormorant Garamond",serif;margin-right:3px}
+.stk{position:absolute;width:64px;right:-14px;top:-18px;transform:rotate(10deg);filter:drop-shadow(0 6px 8px rgba(30,0,8,.45))}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid var(--paper);background:transparent;color:var(--paper);border-radius:99px;padding:0 15px;min-height:38px;font:600 italic 16px "Cormorant Garamond",serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--paper);color:var(--bx)}
+.tools{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-bottom:14px}
+select,input,textarea{font:16px "EB Garamond",serif;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:6px;padding:9px 11px;min-height:44px;width:100%}
+textarea{min-height:70px;resize:vertical}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+.own{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.btn{border:0;border-radius:99px;background:var(--bx);color:var(--paper);font:700 16px "Cormorant Garamond",serif;padding:0 18px;min-height:44px;cursor:pointer;white-space:nowrap}
+.btn.rose{background:var(--rose);color:var(--ink)}
+.btn.alt{background:transparent;color:var(--bx);border:1.5px solid var(--bx)}
+.own .btn.alt{color:var(--paper);border-color:var(--paper)}
+.btn.full{width:100%}
+.switch{display:flex;align-items:center;gap:8px;color:var(--paper);font-size:15px;font-style:italic;cursor:pointer;min-height:44px}
+.switch input{width:20px;height:20px;min-height:0;accent-color:var(--rose)}
+.sizes{background:var(--paper);padding:10px 14px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:4px 16px;align-items:baseline;font-size:15px;border-radius:4px}
+.sizes h2{font:400 26px/1 "Pinyon Script",cursive;margin:0;color:var(--bx)}
+.sizes span{color:var(--muted);font-style:italic}.sizes b{color:var(--ink);font-style:normal;margin-left:3px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.item{background:var(--paper);border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;box-shadow:0 10px 22px -12px rgba(30,0,8,.75);border-radius:4px;overflow:hidden;position:relative}
+.ph{aspect-ratio:4/5;background:var(--rose2);display:grid;place-items:center;overflow:hidden;position:relative}
+.ph{background:#f3efeb}.ph img{width:100%;height:100%;object-fit:contain;display:block}
+.ph svg{width:44%;opacity:.8}
+.badge{position:absolute;left:8px;top:8px;background:var(--paper);color:var(--bx);font:700 italic 14px "Cormorant Garamond",serif;padding:3px 10px;border-radius:99px}
+.badge.mine{background:var(--bx);color:var(--paper)}
+.heart{position:absolute;right:8px;top:6px;color:var(--bx);font-size:14px;background:var(--paper);border-radius:99px;padding:2px 8px}
+.item .tx{padding:9px 10px 11px}
+.item h3{font:700 16px/1.2 "Cormorant Garamond",serif;margin:0;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .pr{font-size:15px;color:var(--bx);font-weight:600;margin-top:3px}
+.item.off .ph{filter:grayscale(.6);opacity:.55}
+.empty{text-align:center;padding:34px 18px;background:var(--paper);color:var(--muted);border-radius:4px}
+.empty b{display:block;font:400 34px "Pinyon Script",cursive;color:var(--bx)}
+.ov{position:fixed;inset:0;background:rgba(40,4,12,.6);display:none;align-items:flex-end;justify-content:center;z-index:9}
+.ov.on{display:flex}
+@media(min-width:700px){.ov{align-items:center;padding:16px}}
+.panel{background:var(--paper);width:min(520px,100%);max-height:92vh;overflow:auto;border-radius:16px 16px 0 0;padding:0 0 20px}
+@media(min-width:700px){.panel{border-radius:8px}}
+.panel .in{padding:16px 20px 0}
+.panel h2{font:400 36px/1.05 "Pinyon Script",cursive;margin:0 0 6px;color:var(--bx)}
+.dimg{aspect-ratio:1/1;background:var(--rose2);display:grid;place-items:center;max-height:52vh}
+.dimg img{width:100%;height:100%;object-fit:contain;background:#fff}
+.dimg svg{width:30%;opacity:.8}
+.dt{font:700 24px/1.15 "Cormorant Garamond",serif;margin:0;color:var(--ink)}
+.dp{color:var(--bx);font-weight:600;margin:4px 0 0}
+.why{font:italic 500 19px/1.35 "Cormorant Garamond",serif;color:var(--bx);margin:12px 0;padding:10px 14px;background:var(--rose2);border-radius:6px}
+.spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;font-size:16px;margin:0 0 10px}
+.spec dt{color:var(--muted);font-style:italic}.spec dd{margin:0;font-weight:600;overflow-wrap:anywhere}
+.lk{display:flex;align-items:center;justify-content:center;min-height:44px;border:0;border-radius:99px;background:var(--bx);color:var(--paper);font:700 17px "Cormorant Garamond",serif;text-decoration:none;margin:4px 0 8px}
+.stack{display:grid;gap:8px}
+.x{position:sticky;top:8px;float:right;margin:8px 8px -52px 0;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:var(--paper);color:var(--bx);font-size:24px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+label{display:block;font:600 italic 16px "Cormorant Garamond",serif;margin:10px 0 3px;color:var(--bx)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;margin-top:18px}
+.small{font-size:14px;color:var(--muted);margin:8px 0 0}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--paper);color:var(--bx);padding:11px 20px;border-radius:99px;font:600 italic 17px "Cormorant Garamond",serif;display:none;z-index:10;box-shadow:0 6px 20px rgba(0,0,0,.35);max-width:90vw}
+@media(prefers-reduced-motion:no-preference){.item{transition:transform .2s}.item:active{transform:scale(.97)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="card">
+    <svg class="stk" viewBox="0 0 160 170" aria-hidden="true">
+      <path d="M30 70 L130 70 L130 156 L30 156Z M22 52 L138 52 L138 72 L22 72Z M80 50 Q50 10 40 34 Q34 52 80 52 Q126 52 120 34 Q110 10 80 50Z" fill="#fbf6ee" stroke="#fbf6ee" stroke-width="20" stroke-linejoin="round"/>
+      <g fill="none" stroke="#a3283f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 72 L130 72 L130 158 L30 158Z M22 52 L138 52 L138 72 L22 72Z M80 52 L80 158"/><path d="M80 50 Q48 8 38 32 Q34 50 80 50 Q126 50 122 32 Q112 8 80 50Z"/></g>
+    </svg>
+    <small>La liste de Noël de</small>
+    <h1>Fanny</h1>
+    <p id="intro">Cette liste est uniquement pour Stéphane Guggino et ses collaborateurs : pas de risque de doublon de cadeaux. Touche un cadeau pour voir le détail et le commander.</p>
+    <div class="stats" id="stats"></div>
+  </div>
+</header>
+
+<div class="chips" id="chips"></div>
+<div class="tools">
+  <select id="sort" aria-label="Trier">
+    <option value="prio">Ordre de la liste</option>
+    <option value="asc">Prix ↑</option>
+    <option value="desc">Prix ↓</option>
+    <option value="new">Récents</option>
+  </select>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+
+<div class="ov" id="detOv" role="dialog" aria-modal="true" aria-label="Détail du cadeau">
+  <div class="panel" id="det"></div>
+</div>
+
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="cadeaux.js"></script>
+<script>
+{
+const ITEMS=CADEAUX.map(i=>({...i,src:i.photo,at:i.ordre}));
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const hasP=n=>n!=null&&n!==''&&!isNaN(n);
+const eur=n=>hasP(n)?Number(n).toLocaleString('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}):'';
+let cat='Tout',openId=null;
+function render(){
+  const cats=['Tout',...new Set(ITEMS.map(i=>i.cat).filter(Boolean))];
+  $('chips').innerHTML=cats.map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${c===cat}">${esc(c)}</button>`).join('');
+  let list=ITEMS.filter(i=>cat==='Tout'||i.cat===cat);
+  const s=$('sort').value,pa=i=>hasP(i.price)?+i.price:Infinity,pd=i=>hasP(i.price)?+i.price:-1;
+  list.sort(s==='asc'?(a,b)=>pa(a)-pa(b):s==='desc'?(a,b)=>pd(b)-pd(a):s==='new'?(a,b)=>b.at-a.at:(a,b)=>a.at-b.at);
+  $('grid').innerHTML=list.map(i=>`<button class="item" data-open="${esc(i.id)}"><div class="ph"><img src="${i.src}" alt="" loading="lazy"></div>
+    <div class="tx"><h3>${esc(i.title)}</h3>${hasP(i.price)||i.size?`<div class="pr">${eur(i.price)}${hasP(i.price)&&i.size?' · ':''}${i.size?'T. '+esc(i.size):''}</div>`:''}</div></button>`).join('');
+  $('stats').innerHTML=`<span><b>${ITEMS.length}</b>idées</span>`;
+}
+function openDet(id){const i=ITEMS.find(x=>x.id===id);if(!i)return;openId=id;
+  $('det').innerHTML=`<button class="x" data-close aria-label="Fermer">×</button>
+    <div class="dimg"><img src="${i.src}" alt="${esc(i.title)}"></div>
+    <div class="in"><p class="dt">${esc(i.title)}</p>${hasP(i.price)?`<p class="dp">${eur(i.price)}</p>`:''}
+    ${i.why?`<p class="why">« ${esc(i.why)} »</p>`:''}
+    <dl class="spec">${i.size?`<dt>Taille</dt><dd>${esc(i.size)}</dd>`:''}${i.ref?`<dt>Réf.</dt><dd>${esc(i.ref)}</dd>`:''}${i.note?`<dt>Note</dt><dd>${esc(i.note)}</dd>`:''}</dl>
+    <a class="lk" href="${esc(i.link)}" target="_blank" rel="noopener">Commander sur le site →</a></div>`;
+  $('detOv').classList.add('on')}
+const close=()=>{$('detOv').classList.remove('on');openId=null};
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;render()}});
+$('sort').addEventListener('change',render);
+$('grid').addEventListener('click',e=>{const b=e.target.closest('[data-open]');if(b)openDet(b.dataset.open)});
+$('det').addEventListener('click',e=>{if(e.target.closest('[data-close]'))close()});
+$('detOv').addEventListener('click',e=>{if(e.target.id==='detOv')close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+render();
+}
+</script>
+</body>
+</html>
