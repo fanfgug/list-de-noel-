@@ -152,5 +152,14 @@ const CADEAUX = [
     "why": "Je monte dessus, ça vibre, je fais du sport. Techniquement.",
     "photo": "plateforme-vibrante.jpg",
     "ordre": 14
+  },
+  {
+    "id": "tapis-de-marche",
+    "cat": "Sport",
+    "title": "Tapis de marche LONTEK inclinable, accoudoirs réglables et télécommande",
+    "link": "https://www.amazon.fr/dp/B0H74XW6MS",
+    "why": "Je marche, je travaille, je brûle des calories : je suis multitâche, même en jogging.",
+    "photo": "tapis-de-marche.jpg",
+    "ordre": 15
   }
 ];
