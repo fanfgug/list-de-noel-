@@ -2,6 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Liste de Noël de Fanny</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -121,7 +124,7 @@ label{display:block;font:600 italic 16px "Cormorant Garamond",serif;margin:10px 
 
 <div class="toast" id="toast" role="status"></div>
 
-<script src="cadeaux.js"></script>
+<script>document.write('<script src="cadeaux.js?v='+Date.now()+'"><\/script>')</script>
 <script>
 {
 const ITEMS=CADEAUX.map(i=>({...i,src:i.photo,at:i.ordre}));
