@@ -161,5 +161,15 @@ const CADEAUX = [
     "why": "Je marche, je travaille, je brûle des calories : je suis multitâche, même en jogging.",
     "photo": "tapis-de-marche.jpg",
     "ordre": 15
+  },
+  {
+    "id": "columbia-sherpa-helvetia",
+    "cat": "Vestes & gilets",
+    "size": "L",
+    "title": "Polaire sherpa courte Helvetia II imprimée – Columbia",
+    "link": "https://www.columbiasportswear.fr/FR/p/polaire-sherpa-courte-semi-boutonnee-avec-imprime-helvetia-ii-femme-2098501.html?dwvar_2098501_color=225",
+    "why": "Un damier caramel tout doux : je suis un mouton, et je suis un jeu d'échecs.",
+    "photo": "columbia-sherpa-helvetia.jpg",
+    "ordre": 16
   }
 ];
