@@ -143,5 +143,14 @@ const CADEAUX = [
     "why": "Panier devant, cheveux au vent, zéro bouchon sur le bord de mer. Je ne fais pas du vélo, je fais une apparition.",
     "photo": "velo.jpg",
     "ordre": 13
+  },
+  {
+    "id": "plateforme-vibrante",
+    "cat": "Sport",
+    "title": "Plateforme vibrante V2 – 99 niveaux, sangles et poignées incluses",
+    "link": "https://www.decathlon.fr/p/mp/plateforme-vibrante-v2-99-niveaux-d-intensite-sangles-et-poignees-incluses/79f41d76-6d82-4d52-9707-f3831d5cadfa/c5",
+    "why": "Je monte dessus, ça vibre, je fais du sport. Techniquement.",
+    "photo": "plateforme-vibrante.jpg",
+    "ordre": 14
   }
 ];
